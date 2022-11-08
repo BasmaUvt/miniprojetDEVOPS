@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include android:id="@+id/search_part"
+        layout="@layout/content_main"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/search_box_right_padding"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/logout_btn_list2"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:text="@string/logout"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="start|center"/>
+
+            <TextView
+                android:id="@+id/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/futura_bold"
+                android:text="List Flight"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center"/>
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/add_btn"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:src="@drawable/fab_add" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <include android:id="@+id/search_widget"
+            layout="@layout/widget_search_bar"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_dialog_email"/>-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

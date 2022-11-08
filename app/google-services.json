@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "912034185429",
+    "project_id": "tunisaviapushnotif",
+    "storage_bucket": "tunisaviapushnotif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912034185429:android:46cffba56bdd7a4844225c",
+        "android_client_info": {
+          "package_name": "com.example.tunisavia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912034185429-22aodlkim2vn6ase7nbgl72mb5j5al9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-fSMBjqlIrxF0XhpiLK119PHTuYRhg2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912034185429-22aodlkim2vn6ase7nbgl72mb5j5al9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

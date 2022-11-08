@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp"
+        android:background="@color/purple_700"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/toolbarBack"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:textSize="18sp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:gravity="start|center"/>
+
+            <TextView
+                android:id="@+id/toolbarText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/toolbarLogout"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:text="@string/logout"
+                android:gravity="center"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/purple_700"
+        app:layout_constraintBottom_toTopOf="@id/guideline_stepper_middle"
+        app:layout_constraintTop_toBottomOf="@id/appbar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_stepper"
+        style="@style/Stepper.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_view"
+        android:layout_margin="12dp"
+        android:translationZ="1000dp"
+        app:layout_constraintTop_toBottomOf="@id/appbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent_view_radius">
+
+            <com.aceinteract.android.stepper.StepperNavigationView
+                android:id="@+id/stepper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="20dp"
+                app:stepperIconSize="20dp"
+                app:stepperItems="@menu/menu_stepper"
+                app:stepperTextColor="@android:color/black"
+                app:stepperTextSize="12sp"
+                app:stepperType="tab_numbered"
+                app:stepperWidgetColor="@color/purple_700" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/frame_stepper_update"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_stepper_middle"
+        app:navGraph="@navigation/nav_stepper" />
+
+    <com.example.tunisavia.utils.viewpager.NoSwappableViewpager
+        android:id="@+id/viewpager_stepper_update"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#DDE7FA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_stepper_middle"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:visibility="gone"
+        android:contentDescription="@string/action_next_step"
+        android:src="@drawable/ic_right"
+        app:backgroundTint="@color/color_accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+    <View
+        android:id="@+id/guideline_stepper_middle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/card_stepper"
+        app:layout_constraintTop_toTopOf="@id/card_stepper" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

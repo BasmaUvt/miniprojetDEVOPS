@@ -1,0 +1,46 @@
+{
+  "planes": [
+    {
+      "idPlane": 10,
+      "namePlane": "TwinOtter DHC6-400",
+      "typePlane": "TURBO PROPRE",
+      "immatriculePlane": ""
+    },
+    {
+      "idPlane": 11,
+      "namePlane": "TwinOtter DHC6-300",
+      "typePlane": "TURBO PROPRE",
+      "immatriculePlane": ""
+    },
+    {
+      "idPlane": 12,
+      "namePlane": "B1900",
+      "typePlane": "TURBO PROPRE",
+      "immatriculePlane": ""
+    },
+    {
+      "idPlane": 13,
+      "namePlane": "CARAVANE C208B",
+      "typePlane": "TURBO PROPRE",
+      "immatriculePlane": ""
+    },
+    {
+      "idPlane": 14,
+      "namePlane": "PC-6",
+      "typePlane": "TURBO PROPRE",
+      "immatriculePlane": ""
+    },
+    {
+      "idPlane": 15,
+      "namePlane": "XLS+",
+      "typePlane": "JET",
+      "immatriculePlane": ""
+    },
+    {
+      "idPlane": 16,
+      "namePlane": "CJ2+",
+      "typePlane": "JET",
+      "immatriculePlane": ""
+    }
+  ]
+}

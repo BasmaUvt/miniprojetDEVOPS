@@ -1,0 +1,25 @@
+{
+  "pilots": [
+    {
+      "id": 10,
+      "name": "Christian Halbout",
+      "code": "HAB",
+      "endroseement": "",
+      "pic": ""
+    },
+    {
+      "id": 11,
+      "name": "Karim Ramdani",
+      "code": "RAM",
+      "endroseement": "",
+      "pic": ""
+    },
+    {
+      "id": 12,
+      "name": "Fayçal ELKARDI",
+      "code": "ELK",
+      "endroseement": "",
+      "pic": ""
+    }
+  ]
+}

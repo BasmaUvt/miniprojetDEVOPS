@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ready_notice">Ready to fly</string>
+    <string name="not_ready_notice">not ready to fly</string>
+    <string name="pilot">Pilot</string>
+    <string name="num_passenger">Number of passenger</string>
+    <string name="type_plane">Type</string>
+    <string name="date_zone">Date and zone</string>
+    <string name="depart">Depart</string>
+    <string name="arrival">arrival</string>
+    <string name="doing">processing</string>
+    <string name="password">password</string>
+</resources>

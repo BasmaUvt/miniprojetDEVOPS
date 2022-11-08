@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card_view_custom_full_radius"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/date_dep_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/calendar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <LinearLayout
+        android:id="@+id/add_one"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/text_ios"
+        app:layout_constraintBottom_toBottomOf="@+id/date_dep_img"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toEndOf="@+id/date_dep_img"
+        app:layout_constraintTop_toTopOf="@+id/date_dep_img">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="Date :" />
+
+        <TextView
+            android:id="@+id/date_dep_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Monday 16/02/2022" />
+
+    </LinearLayout>
+
+    <!--update 1 -->
+    <TextView
+        android:id="@+id/update_one_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:padding="10dp"
+        android:text="@string/update"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/add_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/add_one"
+        app:layout_constraintBottom_toBottomOf="@+id/add_one" />
+
+    <TextView
+        android:id="@+id/time_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/time"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_dep_img"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <LinearLayout
+        android:id="@+id/add_two"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/text_ios"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintBottom_toBottomOf="@+id/time_test"
+        app:layout_constraintStart_toEndOf="@+id/time_test"
+        app:layout_constraintTop_toTopOf="@+id/time_test">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="Time :" />
+
+        <TextView
+            android:id="@+id/time_test_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="20:00PM" />
+
+    </LinearLayout>
+
+    <!--update 1 -->
+    <TextView
+        android:id="@+id/update_two_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:padding="10dp"
+        android:text="@string/update"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_two"
+        app:layout_constraintTop_toTopOf="@+id/add_two"
+        app:layout_constraintBottom_toBottomOf="@+id/add_two" />
+
+    <!--Place testttt-->
+    <TextView
+        android:id="@+id/place_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/place"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_test"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <LinearLayout
+        android:id="@+id/add_three"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/text_ios"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintBottom_toBottomOf="@+id/place_test"
+        app:layout_constraintStart_toEndOf="@+id/place_test"
+        app:layout_constraintTop_toTopOf="@+id/place_test">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="Place :" />
+
+        <TextView
+            android:id="@+id/place_test_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="AZR" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/update_three_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:padding="10dp"
+        android:text="@string/update"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_three"
+        app:layout_constraintTop_toTopOf="@+id/add_three"
+        app:layout_constraintBottom_toBottomOf="@+id/add_three" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

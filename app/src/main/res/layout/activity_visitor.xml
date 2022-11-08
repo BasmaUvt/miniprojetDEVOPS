@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".visitor.VisitorActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.tunisavia.utils.Toolbar
+            android:id="@+id/custom_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/plane_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/helecopter"
+            app:layout_constraintVertical_bias="0"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="2:0.65"/>
+
+        <ImageView
+            android:id="@+id/toolbarBack"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:gravity="start"
+            android:elevation="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            app:layout_constraintStart_toStartOf="@+id/cover_flight"
+            app:layout_constraintTop_toTopOf="@+id/cover_flight"/>
+
+        <ImageView
+            android:id="@+id/cover_flight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#80000000"
+            android:scaleType="centerCrop"
+            app:layout_constraintVertical_bias="0"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="2:0.65"/>
+
+        <TextView
+            android:id="@+id/name_vol_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/plane_img"
+            app:layout_constraintEnd_toEndOf="@+id/plane_img"
+            app:layout_constraintBottom_toBottomOf="@+id/plane_img"
+            app:layout_constraintTop_toTopOf="@+id/plane_img"/>
+
+        <RelativeLayout
+            android:id="@+id/notice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/not_ready_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:text="@string/not_ready_notice"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_baseline_error_24" />
+
+            <TextView
+                android:id="@+id/warning_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/doing"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_baseline_warning_24" />
+
+            <TextView
+                android:id="@+id/success_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/green_lite"
+                android:textColor="@color/black"
+                android:text="@string/ready_notice"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_baseline_check_circle_24" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/type_plane_lbl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:text="@string/type_plane"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/plane_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/type_plane"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/type_plane_lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/type_plane_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/app_name"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/name_pilot_lbl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:text="@string/pilot"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/type_plane"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/name_pilot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/name_pilot_lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pilot_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/empty_user"/>
+
+            <TextView
+                android:id="@+id/pilot_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:text="@string/app_name"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/number_passenger_lbl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:text="@string/num_passenger"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/name_pilot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/number_passenger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/number_passenger_lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_gravity="center"
+            android:text="20"/>
+
+        <TextView
+            android:id="@+id/date_zone_lbl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:text="@string/date_zone"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/number_passenger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/date_zone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/date_zone_lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/depart"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/date_dep_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:layout_marginTop="10dp"
+                    android:text="24.05"/>
+
+                <TextView
+                    android:id="@+id/zone_dep_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="3"
+                    android:text="Tunisia Ariana"/>
+
+                <TextView
+                    android:id="@+id/time_dep_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:layout_marginTop="10dp"
+                    android:text="19:30"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/blue"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:text="@string/arrival"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/date_arr_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:layout_marginTop="10dp"
+                    android:text="24.05"/>
+
+                <TextView
+                    android:id="@+id/zone_arr_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="3"
+                    android:text="Tunisia Ariana"/>
+
+                <TextView
+                    android:id="@+id/time_arr_details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:layout_marginTop="10dp"
+                    android:text="19:30"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Log out"
+            android:visibility="gone"
+            android:enabled="true"
+            android:textAllCaps="false"
+            android:layout_marginTop="40dp"
+            app:layout_constraintWidth_percent="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_zone"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/update_check_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.07"
+            android:visibility="gone"
+            android:text="check"
+            android:enabled="true"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            app:layout_constraintWidth_percent="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logout_btn"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/logout_btn_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:gravity="center"
+            android:text="Logout"
+            android:textColor="@color/blue"
+            android:background="@drawable/card_view_custom_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/material_design_android_floating_action_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            app:menu_animationDelayPerItem="55"
+            app:menu_backgroundColor="@android:color/transparent"
+            app:menu_buttonSpacing="0dp"
+            app:menu_colorNormal="@color/blue"
+            app:menu_colorPressed="@color/blue"
+            app:menu_colorRipple="#99d4d4d4"
+            app:menu_fab_label="Settings"
+            app:menu_fab_size="normal"
+            app:menu_icon="@drawable/fab_add"
+            app:menu_labels_colorNormal="#333"
+            app:menu_labels_colorPressed="#444"
+            app:menu_labels_colorRipple="#66efecec"
+            app:menu_labels_cornerRadius="3dp"
+            app:menu_labels_ellipsize="none"
+            app:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+            app:menu_labels_margin="0dp"
+            app:menu_labels_maxLines="-1"
+            app:menu_labels_padding="8dp"
+            app:menu_labels_position="left"
+            app:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+            app:menu_labels_showShadow="true"
+            app:menu_labels_singleLine="false"
+            app:menu_labels_textColor="#f2f1f1"
+            app:menu_labels_textSize="15sp"
+            app:menu_openDirection="up"
+            app:menu_shadowColor="#66aff198"
+            app:menu_shadowRadius="4dp"
+            app:menu_shadowXOffset="1dp"
+            app:menu_shadowYOffset="4dp"
+            app:menu_showShadow="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintHorizontal_bias="0.9">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/check_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fab_add"
+                app:fab_label="add"
+                app:fab_size="mini"
+                app:fab_colorNormal="@color/blue"
+                app:fab_colorPressed="@color/blue"
+                android:contentDescription="@string/app_name" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/logout_btn_list2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="logout"
+                app:fab_size="mini"
+                app:fab_colorNormal="@color/blue"
+                app:fab_colorPressed="@color/blue"
+                android:src="@drawable/ic_logout_svg"
+                android:contentDescription="@string/app_name" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/logo_app"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        android:layout_marginStart="20dp"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/logo_app"
+        app:layout_constraintTop_toTopOf="@+id/logo_app"
+        app:layout_constraintBottom_toBottomOf="@+id/logo_app"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/logo_app"
+        app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

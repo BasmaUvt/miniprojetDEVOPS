@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/search_view_layout_approx_height"
+    android:fillViewport="true"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#DDE7FA"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:layout_anchor="@id/bar_layout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".visitor.ListPlanesActivity"
+        tools:showIn="@layout/activity_list_planes">
+
+        <com.example.tunisavia.utils.SearchBar
+            android:gravity="start|center"
+            android:hint="@string/app_name"
+            android:id="@+id/search_bar_custom"
+            android:layout_gravity="start"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:translationZ="1000dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/plane_rv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:searchbar_background_color="@color/colorWhite"
+            app:searchbar_edge_color="@color/colorPrimaryDark"
+            app:searchbar_searching_color="@color/colorAccent"
+            app:searchbar_stretch="false"
+            app:searchbar_stretch_direction="0"
+            app:searchbar_stretch_height="60dp"
+            app:searchbar_stretch_width="700dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="#80F4F2EE"
+            android:elevation="2dp"
+            android:id="@+id/loading_anim_list"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/no_internet_illustration"
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="around_the_world.json"
+                app:lottie_loop="true" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:elevation="4dp"
+            android:id="@+id/plane_rv"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.95" />
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/no_plane_txt"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:padding="20dp"
+            android:text="No plane is registred"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/material_design_android_floating_action_menu"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:menu_animationDelayPerItem="55"
+            app:menu_backgroundColor="@android:color/transparent"
+            app:menu_buttonSpacing="0dp"
+            app:menu_colorNormal="@color/blue"
+            app:menu_colorPressed="@color/blue"
+            app:menu_colorRipple="#99d4d4d4"
+            app:menu_fab_label="Settings"
+            app:menu_fab_size="normal"
+            app:menu_icon="@drawable/fab_add"
+            app:menu_labels_colorNormal="#333"
+            app:menu_labels_colorPressed="#444"
+            app:menu_labels_colorRipple="#66efecec"
+            app:menu_labels_cornerRadius="3dp"
+            app:menu_labels_ellipsize="none"
+            app:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+            app:menu_labels_margin="0dp"
+            app:menu_labels_maxLines="-1"
+            app:menu_labels_padding="8dp"
+            app:menu_labels_position="left"
+            app:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+            app:menu_labels_showShadow="true"
+            app:menu_labels_singleLine="false"
+            app:menu_labels_textColor="#f2f1f1"
+            app:menu_labels_textSize="15sp"
+            app:menu_openDirection="up"
+            app:menu_shadowColor="#66aff198"
+            app:menu_shadowRadius="4dp"
+            app:menu_shadowXOffset="1dp"
+            app:menu_shadowYOffset="4dp"
+            app:menu_showShadow="true"
+            tools:visibility="visible">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:contentDescription="@string/app_name"
+                android:id="@+id/add_btn"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/fab_add"
+                app:fab_colorNormal="@color/blue"
+                app:fab_colorPressed="@color/blue"
+                app:fab_label="add"
+                app:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:contentDescription="@string/app_name"
+                android:id="@+id/logout_btn_list2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_logout_svg"
+                app:fab_colorNormal="@color/blue"
+                app:fab_colorPressed="@color/blue"
+                app:fab_label="logout"
+                app:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:contentDescription="@string/app_name"
+            android:id="@+id/logout_btn_list"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

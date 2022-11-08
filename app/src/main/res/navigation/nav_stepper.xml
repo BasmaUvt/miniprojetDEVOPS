@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_stepper"
+    app:startDestination="@id/step_1_dest">
+
+    <fragment
+        android:id="@+id/step_1_dest"
+        android:name="com.example.tunisavia.stepp.SignUpOne"
+        android:label="Checking"
+        tools:layout="@layout/fragment_signup_one" />
+
+    <fragment
+        android:id="@+id/step_2_dest"
+        android:name="com.example.tunisavia.stepp.SignUpTwo"
+        android:label="Fueling"
+        tools:layout="@layout/fragment_signup_two" />
+
+    <fragment
+        android:id="@+id/step_3_dest"
+        android:name="com.example.tunisavia.stepp.SignUpThree"
+        android:label="Briefing"
+        tools:layout="@layout/fragment_signup_three" />
+
+    <fragment
+        android:id="@+id/step_4_dest"
+        android:name="com.example.tunisavia.stepp.SignUpFour"
+        android:label="Cargo and passengers"
+        tools:layout="@layout/fragment_signup_four" />
+
+    <fragment
+        android:id="@+id/step_5_dest"
+        android:name="com.example.tunisavia.stepp.SignUpFive"
+        android:label="Ops"
+        tools:layout="@layout/fragment_signup_five" />
+</navigation>

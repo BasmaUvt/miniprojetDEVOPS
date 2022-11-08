@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDE7FA"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loading_anim"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="#80F4F2EE"
+            android:visibility="gone"
+            android:elevation="20dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/no_internet_illustration"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="around_the_world.json"
+                app:lottie_loop="true" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_add"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:background="@color/purple_700"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:title="Step 1" />
+
+        <LinearLayout
+            android:id="@+id/customToolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/backToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="start"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:text="@string/back"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/titleToolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:text="General information"
+                android:textSize="18sp"
+                android:fontFamily="@font/futura_bold"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+            <TextView
+                android:id="@+id/logoutToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="end"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:text="@string/logout"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <com.example.tunisavia.utils.viewpager.KKViewPager
+            android:id="@+id/media_vp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:focusableInTouchMode="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customToolbar"
+            app:layout_constraintVertical_bias="0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/passenger_numb_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/card_view_custom"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_one"
+            app:layout_constraintWidth_percent="0.95">
+
+            <TextView
+                android:id="@+id/nb_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passenger number"
+                android:textColor="@color/black"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/futura_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/update_nb_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <LinearLayout
+                android:id="@+id/nb_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_view"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:text="2"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:weightSum="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nb_txt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent="0.55">
+
+                <TextView
+                    android:id="@+id/minus_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/numb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:text="3"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/plus_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="+"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/card_view_custom"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
+            app:layout_constraintWidth_percent="0.95">
+
+            <TextView
+                android:id="@+id/title_general"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="General information"
+                android:textSize="18sp"
+                android:fontFamily="@font/futura_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <EditText
+                android:id="@+id/name_vol"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_view"
+                android:hint="Name of flight"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_general"
+                app:layout_constraintVertical_bias="0.05"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/name_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/transparent_view"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:hint="Type"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_vol"
+                app:layout_constraintVertical_bias="0.2"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="top"
+                android:padding="10dp"
+                android:text="Choose Pilot"
+                android:translationZ="1000dp"
+                app:layout_constraintBottom_toBottomOf="@+id/pilot_container"
+                app:layout_constraintEnd_toEndOf="@+id/pilot_container"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="@+id/pilot_container"
+                app:layout_constraintTop_toBottomOf="@+id/name_in"
+                app:layout_constraintVertical_bias="0.35" />
+
+            <RelativeLayout
+                android:id="@+id/pilot_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/withradius"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/name_in"
+                app:layout_constraintStart_toStartOf="@+id/name_in"
+                app:layout_constraintTop_toBottomOf="@+id/name_in">
+
+                <LinearLayout
+                    android:id="@+id/not_empty_pilot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:translationZ="1002dp"
+                    android:weightSum="4">
+
+                    <ImageView
+                        android:id="@+id/item_img"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/empty_user" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/choice_pilot"
+                        style="@style/RecyclerPickerDialog.Style.Row.Choice"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="3.5"
+                        android:gravity="center"
+                        android:text="Choice" />
+
+                    <ImageView
+                        android:id="@+id/change_pilot_img"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_baseline_close_24" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/card_view_custom"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passenger_numb_container"
+            app:layout_constraintWidth_percent="0.95">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/test_group"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="place_test_in, place_test, date_dep_img, date_dep_in, time_test, time_test_in"/>
+
+            <TextView
+                android:id="@+id/title_dep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Date and place for depart"
+                android:textSize="18sp"
+                android:fontFamily="@font/futura_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/update_one_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/date_dep_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/calendar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_dep"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/date_dep_in"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="Monday 16/02/2022"
+                app:layout_constraintBottom_toBottomOf="@+id/date_dep_img"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/date_dep_img"
+                app:layout_constraintTop_toTopOf="@+id/date_dep_img"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/time_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/time"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_dep_img"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/time_test_in"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="20:00PM"
+                app:layout_constraintBottom_toBottomOf="@+id/time_test"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/time_test"
+                app:layout_constraintTop_toTopOf="@+id/time_test"
+                app:layout_constraintWidth_percent="0.8" />
+
+
+            <!--Place testttt-->
+            <TextView
+                android:id="@+id/place_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/place"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/time_test"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/place_test_in"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="20:00PM"
+                app:layout_constraintBottom_toBottomOf="@+id/place_test"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/place_test"
+                app:layout_constraintTop_toTopOf="@+id/place_test"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <LinearLayout
+                android:id="@+id/place_dep_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="@+id/date_dep_in"
+                app:layout_constraintStart_toStartOf="@+id/date_dep_img"
+                app:layout_constraintTop_toBottomOf="@+id/place_test">
+
+                <TextView
+                    android:id="@+id/country_dep_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_view"
+                    android:hint="Country"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/city_dep_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_view"
+                    android:hint="City"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/date_arr_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/transparent_view"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/calendar"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/place_dep_in"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <EditText
+                android:id="@+id/date_arr_in"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/not_editable_view"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text="Monday 16/02/2022 at 20:00"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/date_arr_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/date_arr_img"
+                app:layout_constraintTop_toTopOf="@+id/date_arr_img"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <LinearLayout
+                android:id="@+id/place_arr_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="@+id/date_arr_in"
+                app:layout_constraintStart_toStartOf="@+id/date_arr_img"
+                app:layout_constraintTop_toBottomOf="@+id/date_arr_in">
+
+                <TextView
+                    android:id="@+id/country_arr_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_view"
+                    android:hint="Country"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/city_arr_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_view"
+                    android:hint="City"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_three"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/card_view_custom"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_two"
+            app:layout_constraintWidth_percent="0.95">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/test_group_two"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="date_arr_test_img, date_arr_test_in, time_test_arr, time_test_in_arr, place_test_arr, place_test_in_arr"/>
+
+            <TextView
+                android:id="@+id/title_arr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:text="Date and place for arrive"
+                android:textSize="18sp"
+                android:fontFamily="@font/futura_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/update_two_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/date_arr_test_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/calendar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_arr"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/date_arr_test_in"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="Monday 16/02/2022"
+                app:layout_constraintBottom_toBottomOf="@+id/date_arr_test_img"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/date_arr_test_img"
+                app:layout_constraintTop_toTopOf="@+id/date_arr_test_img"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <TextView
+                android:id="@+id/time_test_arr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/time"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_arr_test_in"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/time_test_in_arr"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="20:00PM"
+                app:layout_constraintBottom_toBottomOf="@+id/time_test_arr"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/time_test_arr"
+                app:layout_constraintTop_toTopOf="@+id/time_test_arr"
+                app:layout_constraintWidth_percent="0.8" />
+
+
+            <!--Place testttt-->
+            <TextView
+                android:id="@+id/place_test_arr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_awesome_five_pro_light"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/place"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/time_test_arr"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/place_test_in_arr"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="20:00PM"
+                app:layout_constraintBottom_toBottomOf="@+id/place_test_arr"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/place_test_arr"
+                app:layout_constraintTop_toTopOf="@+id/place_test_arr"
+                app:layout_constraintWidth_percent="0.8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/next_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:enabled="true"
+            android:text="Next"
+            android:padding="15dp"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/media_vp"
+            app:layout_constraintVertical_bias="0.95"
+            app:layout_constraintWidth_percent="0.7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

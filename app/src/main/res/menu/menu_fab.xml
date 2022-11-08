@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_log_out"
+        android:icon="@drawable/logo"
+        android:title="Log out" />
+
+    <item
+        android:id="@+id/menu_check"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Check flight" />
+
+
+</menu>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp"
+    android:background="@drawable/card_view_custom_full_radius"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title_general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="General information"
+        android:textSize="18sp"
+        android:fontFamily="@font/futura_bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <EditText
+        android:id="@+id/name_vol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_view"
+        android:hint="Name of flight"
+        android:padding="10dp"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_general"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/name_in"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/transparent_view"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+        android:hint="Type"
+        android:padding="10dp"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_vol"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="top"
+        android:padding="10dp"
+        android:text="Choose Pilot"
+        android:translationZ="1000dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pilot_container"
+        app:layout_constraintEnd_toEndOf="@+id/pilot_container"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/pilot_container"
+        app:layout_constraintTop_toBottomOf="@+id/name_in"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <RelativeLayout
+        android:id="@+id/pilot_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/withradius"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/name_in"
+        app:layout_constraintStart_toStartOf="@+id/name_in"
+        app:layout_constraintTop_toBottomOf="@+id/name_in">
+
+        <LinearLayout
+            android:id="@+id/not_empty_pilot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:translationZ="1002dp"
+            android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/item_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/empty_user" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/choice_pilot"
+                style="@style/RecyclerPickerDialog.Style.Row.Choice"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="3.5"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Choice" />
+
+            <ImageView
+                android:id="@+id/change_pilot_img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_baseline_close_24" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/nb_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passenger number"
+        android:layout_marginStart="10dp"
+        android:textSize="14sp"
+        android:translationZ="1000dp"
+        android:padding="10dp"
+        android:gravity="top"
+        android:background="@color/white"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/nb_in"
+        app:layout_constraintEnd_toEndOf="@+id/nb_in"
+        app:layout_constraintTop_toBottomOf="@+id/pilot_container"
+        app:layout_constraintBottom_toBottomOf="@+id/nb_in"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/update_nb_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_awesome_five_pro_light"
+        android:gravity="center"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:text="@string/update"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilot_container"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <LinearLayout
+        android:id="@+id/nb_in"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_view"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:text="2"
+        android:layout_marginTop="30dp"
+        android:weightSum="4"
+        app:layout_constraintEnd_toEndOf="@+id/pilot_container"
+        app:layout_constraintStart_toStartOf="@+id/pilot_container"
+        app:layout_constraintTop_toBottomOf="@+id/pilot_container">
+
+        <TextView
+            android:id="@+id/minus_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-"
+            android:layout_marginTop="10dp"
+
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/numb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="3"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/plus_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="+"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
